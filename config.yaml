@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# AI Inbox Summarizer — Central Configuration
+# ─────────────────────────────────────────────────────────────────────────────
+
+paths:
+  data:        "data/emails.csv"
+  models:      "models/"
+  metrics:     "models/metrics.json"
+
+data:
+  n_samples:   2000
+  categories:  ["work", "spam", "newsletter", "personal", "finance", "alerts"]
+  priorities:  ["high", "medium", "low"]
+  test_size:   0.20
+  random_seed: 42
+
+vectorizer:
+  max_features:   12000
+  ngram_range:    [1, 2]
+  sublinear_tf:   true
+  min_df:         2
+  max_df:         0.95
+
+classifier:
+  name:       "LogisticRegression"
+  C:          1.5
+  max_iter:   1000
+  solver:     "lbfgs"
+  cv_folds:   5
+
+priority_model:
+  name:           "RandomForestClassifier"
+  n_estimators:   150
+  max_depth:      20
+  min_samples_split: 5
+
+summarizer:
+  backend:        "lsa"       # lsa | lex_rank | luhn
+  sentences:      3
+  language:       "english"
+
+topic_model:
+  n_topics:       4
+  n_words:        8
+  max_features:   500
+  max_iter:       15
+
+app:
+  page_title:     "AI Inbox Summarizer"
+  page_icon:      "📬"
+  layout:         "wide"
+  max_batch_rows: 500
