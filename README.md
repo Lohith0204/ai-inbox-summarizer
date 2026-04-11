@@ -5,7 +5,7 @@
 ---
 
 ### 🌐 Live Deployment
-- **Interactive Dashboard**: *(Add your Streamlit Cloud link here)*
+- **Interactive Dashboard**: https://ai-inbox-summarizer.streamlit.app/
 
 ---
 
